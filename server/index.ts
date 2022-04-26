@@ -6,8 +6,9 @@ import { tempData } from "./temp-data";
 const app = express();
 
 const PORT = 8888;
-
-const PAGE_SIZE = 5;
+// changed Page size to tempdata.length to view all of the matches.
+// if a new match enters the db it will display without having to make any change.
+const PAGE_SIZE = tempData.length;
 
 app.use(bodyParser.json());
 
