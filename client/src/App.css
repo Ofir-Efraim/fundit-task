@@ -72,6 +72,38 @@ body {
           font-weight: 400;
           font-style: normal;
           color: #20455e; }
+      body .matches .match .userDate .csButton {
+        margin-left: 5px;
+        appearance: none;
+        border-radius: 8px;
+        border-style: none;
+        box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+        color: #fff;
+        display: inline-block;
+        font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: normal;
+        line-height: 0;
+        outline: none;
+        overflow: hidden;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;   
+      }
+      body .matches .match .userDate .green {
+        background-color: green;
+      }
+      body .matches .match .userDate .yellow {
+        background-color: #DBA800;
+      }
+      body .matches .match .userDate .red {
+        background-color: red;
+      }
+      body .matches .match .userDate .container{
+        display: flex;    
+        align-items: center;  
+      }
       body .matches .match footer {
         display: flex;
         justify-content: space-between; }
@@ -80,3 +112,4 @@ body {
           font-size: 12px;
           margin: 10px 0;
           flex-shrink: 0; }
+

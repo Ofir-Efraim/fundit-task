@@ -21,6 +21,22 @@ export const Matches = ({
           <h5 className="title">{match.companyName}</h5>
           <div className="matchData">
             <div>
+              <div className="userDate">
+                <div className="container">
+              <b>Credit Score : </b>
+                <div
+                  className={
+                      `csButton ${match.borrower.creditScore >= 679
+                        ? "green"
+                        : match.borrower.creditScore < 579
+                        ? "red"
+                        : "yellow"}`
+                      }
+                >
+                  {match.borrower.creditScore}
+                </div>
+                </div>
+              </div>
               <p className="userDate">
                 <b>Full Name:</b> {match.borrower.user.firstName}{" "}
                 {match.borrower.user.lastName}
