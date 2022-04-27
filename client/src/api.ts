@@ -28,6 +28,7 @@ export type Match = {
 
 export type ApiClient = {
   getMatches: () => Promise<Match[]>;
+  deleteMatch: any;
 };
 
 export const createApiClient = (): ApiClient => {
@@ -37,5 +38,10 @@ export const createApiClient = (): ApiClient => {
         .get(`http://localhost:8888/api/match`)
         .then((res) => res.data);
     },
+    deleteMatch: (id:string, approvedOrDenied:string) => {
+      return axios
+      .post(`http://localhost:8888/delete`,{}, {params:{id,approvedOrDenied}})
+      .then((res) => res.status)
+    }
   };
 };

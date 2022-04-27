@@ -14,12 +14,26 @@ const App = () => {
   const [search, setSearch] = React.useState<string>("");
   const [matches, setMatches] = React.useState<Match[]>([]);
   const [label, setLabel] = React.useState<string>("");
+  const [data, setData] = React.useState<any>({});
+  const [approved, setApproved] = React.useState<number>(0);
+  const [declined, setDeclined] = React.useState<number>(0);
+  async function fetchMatches() {
+    setData(await api.getMatches());
+    setMatches(data.paginatedData);
+    setApproved(data.approved);
+    setDeclined(data.declined);
+  }
+  const onApprove = (id:any) => {
+    api.deleteMatch(id, 'approved');
+  }
+  const onDecline = (id:any) => {
+    api.deleteMatch(id, 'denied');
+  }
   React.useEffect(() => {
-    async function fetchMatches() {
-      setMatches(await api.getMatches());
-    }
     fetchMatches();
-  }, []);
+    // Got an unnecessary warrning, added the following line to ignore it.
+    // eslint-disable-next-line
+  }, [matches]);
   let searchDebounce: any;
   const onSearch = (val: string, newPage?: number) => {
     clearTimeout(searchDebounce);
@@ -51,8 +65,10 @@ const App = () => {
               <option value="Close">Close</option>
             </select>
       </div>
+      <h3>Approved: {approved}</h3>
+      <h3>Declined: {declined}</h3>
       {matches ? (
-        <Matches matches={matches} search={search} label={label} />
+        <Matches onApprove={onApprove} onDecline={onDecline} matches={matches} search={search} label={label} />
       ) : (
         <h2>Loading...</h2>
       )}

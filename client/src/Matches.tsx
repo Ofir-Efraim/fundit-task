@@ -4,10 +4,14 @@ export const Matches = ({
   matches,
   search,
   label,
+  onApprove,
+  onDecline,
 }: {
   matches: Match[];
   search: string;
   label: string;
+  onApprove: Function;
+  onDecline: Function;
 }) => {
   const filteredMatches = matches.filter((t) =>
     (
@@ -19,7 +23,7 @@ export const Matches = ({
     
   );
   const filteredWithLabel =
-  label != '' ? filteredMatches.filter((t) => 
+  label !== '' ? filteredMatches.filter((t) => 
   (
     t.labels?.includes(label)
   )): filteredMatches;
@@ -70,6 +74,10 @@ export const Matches = ({
             <div className="meta-data">
               Created At {new Date(match.creationTime).toLocaleString()}
             </div>
+              <div className="buttonsContainer">
+                <button onClick={ () => onApprove(match.id)} className="buttons" style={{marginRight:'20px', backgroundColor:'#c2fbd7'}}>Approve</button>
+                <button onClick={ () => onDecline(match.id)} className="buttons" style={{backgroundColor:'#ff7f7f'}}>Decline</button>
+              </div>
           </footer>
         </li>
       ))}
