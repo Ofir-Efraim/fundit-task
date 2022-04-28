@@ -1,3 +1,4 @@
+import { padding } from "@mui/system";
 import React from "react";
 import { Match } from "./api";
 export const Matches = ({
@@ -29,10 +30,11 @@ export const Matches = ({
   )): filteredMatches;
 
   return (
+    <>
+    {filteredWithLabel ? (
+      <div className="results">Showing {filteredWithLabel.length} / {matches.length} results</div>
+    ) : null}
     <ul className="matches">
-      {filteredWithLabel ? (
-        <div className="results">Showing {filteredWithLabel.length} results</div>
-      ) : null}
       {filteredWithLabel.map((match) => (
         <li key={match.id} className="match">
           <h5 className="title">{match.companyName}</h5>
@@ -77,5 +79,6 @@ export const Matches = ({
         </li>
       ))}
     </ul>
+    </>
   );
 };

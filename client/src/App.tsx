@@ -44,7 +44,7 @@ const App = () => {
   return (
     <main>
       <h1>Matches List</h1>
-      <header>
+      <header style={{width:'50%', margin:'0 auto'}}>
         <input
           type="search"
           placeholder="Search..."
@@ -52,7 +52,7 @@ const App = () => {
         />
       </header>
       <div style={{display:'flex', alignItems:'center'}}>
-      <h2>Filter by Label :</h2>
+      <h3>Filter by Label :</h3>
       <select
             className='selectLabel'
             value={label}

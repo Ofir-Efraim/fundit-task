@@ -4,10 +4,10 @@ body {
   padding-top: 100px;
   padding: 50px; }
   body main {
-    max-width: 1000px;
     margin: 0 auto; }
   body h1 {
-    font-weight: 300; }
+    font-weight: 300;
+  text-align: center; }
   body .results {
     color: #7a92a5;
     font-size: 12px;
@@ -21,6 +21,7 @@ body {
     margin-bottom: 14px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     border: 1px solid #fff;
     padding: 10px 20px;
     position: relative; }
@@ -64,9 +65,12 @@ body {
   }
   body .matches {
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+  flex-wrap:wrap; }
     body .matches .match {
-      width: 100%;
+      min-width: 30%;
       flex-shrink: 0;
       border-radius: 8px;
       background-color: #fff;
@@ -85,13 +89,15 @@ body {
         font-size: 16px;
         font-weight: 800;
         font-style: normal;
-        color: #20455e; }
+        color: #20455e;
+      text-align: center; }
       body .matches .match .userDate {
           margin: 5px 0;
           font-size: 14px;
           font-weight: 400;
           font-style: normal;
-          color: #20455e; }
+          color: #20455e;
+        text-align: center; }
       body .matches .match .userDate .container{
         display: flex;    
         align-items: center;  
@@ -104,7 +110,8 @@ body {
           color: #7a92a5;
           font-size: 12px;
           margin: 10px 0;
-          flex-shrink: 0; }
+          flex-shrink: 0;
+        text-align: center; }
       body .matches .match footer .buttonsContainer {
           display: flex;
           flex-wrap: wrap;
@@ -142,6 +149,7 @@ body {
         align-items: flex-end;
         justify-content: center;
         box-sizing : border-box;
+        align-self: center;
       }
         .semiCircle:after{
           content: '';
