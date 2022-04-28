@@ -36,24 +36,19 @@ export const Matches = ({
       {filteredWithLabel.map((match) => (
         <li key={match.id} className="match">
           <h5 className="title">{match.companyName}</h5>
-          <div className="matchData">
-            <div>
-              <div className="userDate">
-                <div className="container">
-              <b>Credit Score : </b>
-                <div
-                  className={
-                      `csButton ${match.borrower.creditScore >= 679
-                        ? "green"
+          <div className={
+                      `semiCircle ${match.borrower.creditScore >= 700
+                        ? "greenFull"
+                        : match.borrower.creditScore > 579 && match.borrower.creditScore < 700 
+                        ? "green75"
                         : match.borrower.creditScore < 579
                         ? "red"
                         : "yellow"}`
-                      }
-                >
-                  {match.borrower.creditScore}
-                </div>
-                </div>
-              </div>
+                      }>
+          {match.borrower.creditScore}
+          </div>
+          <div className="matchData">
+              <div className="userDate">
               <p className="userDate">
                 <b>Full Name:</b> {match.borrower.user.firstName}{" "}
                 {match.borrower.user.lastName}

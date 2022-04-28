@@ -65,8 +65,8 @@ const App = () => {
               <option value="Close">Close</option>
             </select>
       </div>
-      <h3>Approved: {approved}</h3>
-      <h3>Declined: {declined}</h3>
+      <div className="approved">Approved: {approved}</div>
+      <div className="declined">Declined: {declined}</div>
       {matches ? (
         <Matches onApprove={onApprove} onDecline={onDecline} matches={matches} search={search} label={label} />
       ) : (
